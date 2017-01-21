@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="560,480">
+  <displayList>
+    <graph id="n15" name="n15" xy="0,0" size="560,480" type="rect" lineColor="#ffe8e8e8" corner="20"/>
+    <component id="n7" name="saveBtn" src="jpoxl" xy="125,389">
+      <relation target="" sidePair="center-center%"/>
+      <Button title="保存"/>
+    </component>
+    <component id="n8" name="cancelBtn" src="jpoxl" xy="315,392">
+      <relation target="" sidePair="center-center%"/>
+      <Button title="取消"/>
+    </component>
+    <list id="n10" name="pathList" xy="10,71" pivot="0.5,0.5" size="536,285" margin="0,0,0,0" defaultItem="ui://86yk9irdjpoxm">
+      <relation target="" sidePair="width-width,center-center%"/>
+      <item name="nameItem"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <graph id="n13" name="n13" xy="0,24" size="4,24" type="rect" lineSize="0" fillColor="#ff0bd0fd"/>
+    <text id="n14" name="n14" xy="23,25" size="69,23" font="微软雅黑" fontSize="16" bold="true" singleLine="true" text="配置信息"/>
+  </displayList>
+</component>

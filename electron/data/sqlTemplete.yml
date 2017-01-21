@@ -1,0 +1,18 @@
+paths:
+ - dataLib
+ - data
+ - lang
+ - export
+export:
+ toPath: ($export)/gamedata.data
+ path:
+ - ($data)
+sqlList:
+ - sql: SELECT ID, Class, Module, ModuleID, Prop, Cn,En, Vn,Font from sys_language where Class!='Error'
+   name: language
+   class: lang
+ - sql: SELECT ItemID,Avatar,ClassModule,ClassParam,`Grade`,ClientView,Destory,DestoryMaterial,CommodityID,PackageType,UseLevel,AccessPath,EnchantingExp FROM `sys_item` where Enabled=1
+   name: item
+   path: ($data)/item/item.txt
+   value:
+    - name: AccessPath

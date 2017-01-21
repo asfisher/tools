@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1228,730">
+  <displayList>
+    <graph id="n8" name="n8" xy="64,72" size="1160,521" type="rect" lineColor="#ffe8e8e8"/>
+    <graph id="n5" name="n5" xy="64,7" size="1162,55" type="rect" lineColor="#ffe8e8e8"/>
+    <component id="n6" name="outTxt" src="vhxw1a" xy="63,71"/>
+    <text id="n0" name="inputTxt" xy="71,18" size="1148,46" input="true" font="微软雅黑" fontSize="12" autoSize="none" text=""/>
+    <component id="n2" name="doBtn" src="n2m910" xy="236,620" size="143,54">
+      <Button title="执行"/>
+    </component>
+    <component id="n3" name="clearBtn" src="n2m910" xy="842,621" size="143,54">
+      <Button title="清理"/>
+    </component>
+  </displayList>
+</component>

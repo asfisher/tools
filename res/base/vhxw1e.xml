@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1228,730">
+  <displayList>
+    <graph id="n8" name="n8" xy="100,209" size="147,37" type="rect" lineColor="#ff8e8e8e">
+      <relation target="n5" sidePair="width-width,height-height"/>
+    </graph>
+    <graph id="n10" name="n10" xy="616,47" size="593,668" type="rect" lineColor="#ff8e8e8e">
+      <relation target="n12" sidePair="width-width,height-height"/>
+      <relation target="n12" sidePair="left-left,top-top"/>
+    </graph>
+    <component id="n0" name="fromPath" src="jpoxm" xy="12,72" size="595,40"/>
+    <component id="n1" name="toPath" src="jpoxm" xy="10,124" size="596,40"/>
+    <component id="n2" name="verBtn" src="n2m910" xy="27,272" size="130,30">
+      <Button title="生成版本"/>
+    </component>
+    <list id="n3" name="tabList" xy="3,0" size="1205,38" layout="row" scroll="horizontal" margin="0,0,0,0" colGap="5" defaultItem="ui://86yk9irdvhxw1f" autoItemSize="false">
+      <item title="testjksa"/>
+      <item/>
+      <item/>
+      <item/>
+      <item url="ui://86yk9irdiwc5g"/>
+    </list>
+    <text id="n4" name="n4" xy="21,212" size="75,30" font="微软雅黑" fontSize="14" align="center" vAlign="middle" autoSize="none" bold="true" text="版本号："/>
+    <text id="n5" name="verTxt" xy="105,214" size="137,29" input="true" font="微软雅黑" fontSize="14" align="center" vAlign="middle" autoSize="none" bold="true" text=""/>
+    <text id="n6" name="n6" xy="308,213" size="99,26" font="微软雅黑" fontSize="14" align="center" vAlign="middle" autoSize="none" bold="true" text="历史版本："/>
+    <component id="n7" name="historyCombox" src="vhxw1i" xy="416,213" size="100,24">
+      <ComboBox visibleItemCount="10">
+        <item title="1.0.0"/>
+        <item title="1.0.1"/>
+        <item title="1.0.2"/>
+      </ComboBox>
+    </component>
+    <component id="n12" name="logMc" src="vhxw1j" xy="626,52" size="576,653"/>
+    <component id="n11" name="clearBtn" src="n2m910" xy="1120,46" size="91,30">
+      <relation target="n12" sidePair="top-top,right-right"/>
+      <Button title="clear"/>
+    </component>
+    <component id="n13" name="publishBtn" src="n2m910" xy="190,273" size="130,30">
+      <Button title="提交文件"/>
+    </component>
+  </displayList>
+</component>

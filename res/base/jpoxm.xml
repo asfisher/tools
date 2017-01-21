@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="500,40">
+  <controller name="page" pages="0,选择,2,输入,3,标题输入" selected="0"/>
+  <displayList>
+    <graph id="n4" name="n4" xy="87,3" size="346,29" type="rect" lineColor="#ffe8e8e8">
+      <relation target="n1" sidePair="width-width,left-left"/>
+    </graph>
+    <text id="n0" name="titleTxt" xy="4,7" size="79,23" font="微软雅黑" fontSize="16" align="right" vAlign="middle" autoSize="none" singleLine="true" text="地址:">
+      <gearDisplay controller="page" pages="0,2"/>
+    </text>
+    <text id="n1" name="pathTxt" xy="90,7" size="338,22" input="true" font="微软雅黑" fontSize="16" autoSize="height" text="http:////">
+      <gearDisplay controller="page" pages="0,2,3"/>
+      <gearSize controller="page" pages="0,2,3" values="338,22,1,1|400,22,1,1|336,22,1,1" default="376,22,1,1"/>
+      <relation target="" sidePair="width-width,left-left"/>
+    </text>
+    <component id="n2" name="selectBtn" src="n2m910" xy="435,2" size="62,30">
+      <gearDisplay controller="page" pages="0,3"/>
+      <relation target="n1" sidePair="left-right"/>
+      <Button title="选择" titleColor="#106ae4"/>
+    </component>
+    <text id="n5" name="titleInputTxt" xy="4,7" size="79,23" input="true" font="微软雅黑" fontSize="16" align="right" vAlign="middle" autoSize="none" bold="true" singleLine="true" text="地址:">
+      <gearDisplay controller="page" pages="3"/>
+    </text>
+  </displayList>
+</component>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1228,730">
+  <displayList>
+    <component id="n5" name="exportBtn" src="jpoxl" xy="19,633">
+      <Button title="导表"/>
+    </component>
+    <component id="n6" name="packBtn" src="jpoxl" xy="139,633">
+      <Button title="打包"/>
+    </component>
+    <component id="n8" name="unpackBtn" src="jpoxl" xy="259,633">
+      <Button title="解包"/>
+    </component>
+    <graph id="n10" name="n10" xy="20,20" size="1188,234" group="n18" type="rect" lineColor="#ffe8e8e8">
+      <relation target="n1" sidePair="width-width,height-height"/>
+    </graph>
+    <graph id="n9" name="n9" xy="20,44" size="4,24" group="n18" type="rect" lineSize="0" fillColor="#ff0bd0fd"/>
+    <text id="n11" name="n11" xy="44,46" size="71,23" group="n18" font="微软雅黑" fontSize="16" autoSize="none" bold="true" text="选择导表"/>
+    <graph id="n12" name="n12" xy="44,86" size="1140,1" group="n18" type="rect" lineSize="0" fillColor="#ffe8e8e8"/>
+    <graph id="n13" name="n13" xy="973,69" size="200,1" group="n18" type="rect" lineSize="0" fillColor="#ffcfd2d4">
+      <relation target="" sidePair="right-right"/>
+    </graph>
+    <text id="n14" name="n14" xy="973,48" size="172,29" group="n18" input="true" prompt="输入搜索导表" font="微软雅黑" fontSize="14" align="right" vAlign="bottom" autoSize="none" bold="true" text="">
+      <relation target="" sidePair="right-right"/>
+    </text>
+    <component id="n15" name="n15" src="n2m9v" xy="1152,49" group="n18">
+      <relation target="" sidePair="right-right"/>
+    </component>
+    <component id="n17" name="n17" src="iwc5k" xy="44,110" size="72,21" group="n18">
+      <Button title="全选" titleColor="#3f82ff"/>
+    </component>
+    <list id="n1" name="sqlList" xy="32,136" size="1146,94" group="n18" layout="flow_hz" selectionMode="multipleSingleClick" overflow="scroll" scrollBarFlags="12" margin="0,0,10,0" lineGap="10" colGap="60" defaultItem="ui://86yk9irdiwc5k" autoItemSize="false">
+      <relation target="" sidePair="width-width"/>
+    </list>
+    <group id="n18" name="n18" xy="20,20" size="1188,234" advanced="true" collapsed="true">
+      <relation target="" sidePair="height-height,width-width"/>
+    </group>
+    <graph id="n28" name="n28" xy="20,438" size="1188,164" group="n32" type="rect" lineColor="#ffe8e8e8">
+      <relation target="n0" sidePair="height-height,width-width"/>
+    </graph>
+    <graph id="n29" name="n29" xy="20,462" size="4,24" group="n32" type="rect" lineSize="0" fillColor="#ff0bd0fd"/>
+    <text id="n30" name="n30" xy="44,464" size="71,23" group="n32" font="微软雅黑" fontSize="16" autoSize="none" bold="true" text="导出设置"/>
+    <graph id="n31" name="n31" xy="44,504" size="1140,1" group="n32" type="rect" lineSize="0" fillColor="#ffe8e8e8"/>
+    <list id="n0" name="toList" xy="42,535" size="1159,40" group="n32" layout="row" overflow="scroll" scroll="horizontal" margin="0,0,0,0" colGap="10" lineItemCount="60" defaultItem="ui://86yk9irdiwc5d" autoItemSize="false">
+      <relation target="" sidePair="width-width"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item url="ui://86yk9irdiwc5g"/>
+    </list>
+    <group id="n32" name="n32" xy="20,438" size="1188,164" advanced="true">
+      <relation target="n18" sidePair="bottom-top"/>
+    </group>
+    <graph id="n23" name="n23" xy="20,266" size="1188,159" group="n27" type="rect" lineColor="#ffe8e8e8">
+      <relation target="n2" sidePair="height-height,width-width"/>
+    </graph>
+    <graph id="n24" name="n24" xy="20,290" size="4,24" group="n27" type="rect" lineSize="0" fillColor="#ff0bd0fd"/>
+    <text id="n25" name="n25" xy="44,292" size="71,23" group="n27" font="微软雅黑" fontSize="16" autoSize="none" bold="true" text="配置设置"/>
+    <list id="n2" name="fromList" xy="42,363" size="1162,33" group="n27" layout="flow_hz" overflow="scroll" margin="0,0,0,0" lineGap="10" colGap="10" defaultItem="ui://86yk9irdiwc5d" autoItemSize="false">
+      <relation target="" sidePair="width-width"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item url="ui://86yk9irdiwc5g"/>
+    </list>
+    <graph id="n26" name="n26" xy="44,332" size="1140,1" group="n27" type="rect" lineSize="0" fillColor="#ffe8e8e8"/>
+    <group id="n27" name="n27" xy="20,266" size="1188,159" advanced="true">
+      <relation target="n18" sidePair="bottom-top"/>
+    </group>
+  </displayList>
+</component>

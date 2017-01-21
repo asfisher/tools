@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="900,600">
+  <displayList>
+    <graph id="n0" name="n0" xy="0,50" size="100,550" locked="true" type="rect" lineSize="0" lineColor="#00000000" fillColor="#ff383e4c">
+      <relation target="" sidePair="left-left,top-top"/>
+      <relation target="" sidePair="height-height"/>
+    </graph>
+    <graph id="n1" name="n1" xy="0,0" size="900,50" locked="true" type="rect" lineSize="0" fillColor="#ff2dc3e8">
+      <relation target="" sidePair="left-left,top-top"/>
+      <relation target="" sidePair="width-width"/>
+    </graph>
+    <graph id="n2" name="n2" xy="100,50" size="800,550" locked="true" type="rect" lineSize="0" fillColor="#ffebebed">
+      <relation target="" sidePair="width-width,height-height"/>
+      <relation target="" sidePair="left-left,top-top"/>
+    </graph>
+    <component id="n3" name="n3" src="iwc50" xy="0,49"/>
+  </displayList>
+</component>

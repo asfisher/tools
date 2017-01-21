@@ -1,0 +1,18 @@
+{
+  "name": "tool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "bin": {
+    "tool": "rawinflate.min.js"
+  },
+  "scripts": {
+    "start": "electron.",
+    "packager": "electron-packager ./ tools --win --out tools --arch=x64 --version 1.4.12 --overwrite --ignore=node_modules --icon=./electron/ico/sb001.ico"
+  },
+  "author": "fish",
+  "license": "ISC",
+  "devDependencies": {
+    "electron-packager": "^8.4.0"
+  }
+}

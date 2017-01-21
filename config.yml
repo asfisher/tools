@@ -1,0 +1,15 @@
+export:
+  debug:
+    sql: 'E:\laya\tool\electron\data\sqlTemplete.yml'
+    host: 192.168.18.20
+    user: readonly
+    password: readonly
+    database: nt_sys_En
+    port: '3306'
+    to:
+      debug:
+        dataLib: 'E:\Test\src'
+        data: 'E:\document\hy\0data\gamedata'
+        lang: 'E:\Test\data'
+        export: 'E:\Test\ss'
+publish: {}

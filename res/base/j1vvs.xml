@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="500,400">
+  <displayList>
+    <graph id="n0" name="n0" xy="0,0" size="500,400" locked="true" type="rect" lineSize="0" fillColor="#4d000000">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <text id="n10" name="txt" xy="15,198" size="472,18" font="微软雅黑" fontSize="12" align="center" vAlign="middle" autoSize="height" text="">
+      <relation target="n12" sidePair="center-center,top-top"/>
+    </text>
+    <graph id="n1" name="n1" xy="198,179" size="7,7" group="n12" type="eclipse" lineSize="0" fillColor="#ff000000"/>
+    <graph id="n3" name="n3" xy="210,179" size="7,7" group="n12" type="eclipse" lineSize="0" fillColor="#ff000000"/>
+    <graph id="n4" name="n4" xy="222,179" size="7,7" group="n12" type="eclipse" lineSize="0" fillColor="#ff000000"/>
+    <graph id="n5" name="n5" xy="234,179" size="7,7" group="n12" type="eclipse" lineSize="0" fillColor="#ff000000"/>
+    <graph id="n6" name="n6" xy="246,179" size="7,7" group="n12" type="eclipse" lineSize="0" fillColor="#ff000000"/>
+    <graph id="n7" name="n7" xy="258,179" size="7,7" group="n12" type="eclipse" lineSize="0" fillColor="#ff000000"/>
+    <graph id="n8" name="n8" xy="270,179" size="7,7" group="n12" type="eclipse" lineSize="0" fillColor="#ff000000"/>
+    <graph id="n9" name="n9" xy="282,179" size="7,7" group="n12" type="eclipse" lineSize="0" fillColor="#ff000000"/>
+    <group id="n12" name="n12" xy="198,179" size="91,7" advanced="true">
+      <relation target="" sidePair="center-center%,middle-middle%"/>
+    </group>
+  </displayList>
+  <transition name="loadAni" autoPlay="true" autoPlayRepeat="-1">
+    <item time="0" type="Visible" target="n8" value="false"/>
+    <item time="0" type="Visible" target="n1" value="false"/>
+    <item time="0" type="Visible" target="n5" value="false"/>
+    <item time="0" type="Visible" target="n3" value="false"/>
+    <item time="0" type="Visible" target="n6" value="false"/>
+    <item time="0" type="Visible" target="n7" value="false"/>
+    <item time="0" type="Visible" target="n9" value="false"/>
+    <item time="0" type="Visible" target="n4" value="false"/>
+    <item time="3" type="Visible" target="n1" value="true"/>
+    <item time="3" type="Visible" target="n3" value="false"/>
+    <item time="6" type="Visible" target="n3" value="true"/>
+    <item time="6" type="Visible" target="n4" value="false"/>
+    <item time="10" type="Visible" target="n5" value="false"/>
+    <item time="10" type="Visible" target="n4" value="true"/>
+    <item time="14" type="Visible" target="n6" value="false"/>
+    <item time="14" type="Visible" target="n5" value="true"/>
+    <item time="18" type="Visible" target="n6" value="true"/>
+    <item time="18" type="Visible" target="n7" value="false"/>
+    <item time="22" type="Visible" target="n7" value="true"/>
+    <item time="22" type="Visible" target="n8" value="false"/>
+    <item time="26" type="Visible" target="n9" value="false"/>
+    <item time="26" type="Visible" target="n8" value="true"/>
+    <item time="30" type="Visible" target="n9" value="true"/>
+  </transition>
+</component>

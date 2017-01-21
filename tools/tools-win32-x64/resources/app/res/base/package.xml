@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="86yk9ird" jpegQuality="80" compressPNG="true">
+  <resources>
+    <component id="iwc50" name="Menu" folder="" file="iwc50.xml"/>
+    <component id="iwc51" name="MenuBtn" folder="" file="iwc51.xml"/>
+    <component id="iwc52" name="MainPanel" folder="" file="iwc52.xml" exported="true"/>
+  </resources>
+  <publish name="base" zipExt="fui"/>
+</packageDescription>
