@@ -18,7 +18,7 @@
         fairygui.UIConfig.globalModalWaiting=fairygui.UIPackage.getItemURL("base","Loading");
         let main=require("../src/ui/ui.mainpanel.js");
         require("../src/ui/ui.exportpanel.js");
-        // require("../src/ui/ui.testpanel.js");
+        require("../src/ui/ui.textpanel.js");
         require("../src/ui/ui.publish.js");
         this.mainWindow=fairygui.UIPackage.createObject("base","MainPanel",main.MainWindow);
         fairygui.GRoot.inst.addChild(this.mainWindow);

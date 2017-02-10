@@ -80,6 +80,8 @@ class PathItem extends fairygui.GComponent
         super.constructFromResource();
         this.titleTxt=this.getChild("titleTxt");
         this.pathTxt=this.getChild("pathTxt");
+        this.pathTxt.on(Laya.Event.FOCUS,this,this.textFocus);
+        this.pathTxt.on(Laya.Event.BLUR,this,this.focusOut);
         this.getChild("selectBtn").onClick(this,this.clickSelectBtn);
         this.titleTxt.text="";
         this.pathTxt.text="";
@@ -107,7 +109,12 @@ class PathItem extends fairygui.GComponent
 
     set path(value)
     {
-        this.pathTxt.text=value?value:"";
+        if(value!=this.path)
+        {
+            this.pathTxt.text=value?value:"";
+            this.checkSvn();
+            this.event("pathChange");
+        }
     }
 
     get path()
@@ -132,7 +139,7 @@ class PathItem extends fairygui.GComponent
         let self=this;
         if(this.type==0)
         {
-            dialog.showOpenDialog({properties: ['openFile']},function(files)
+            dialog.showOpenDialog({properties: ['openFile','openDirectory']},function(files)
             {
                if(files && files.length>0)self.path=files[0];
             });
@@ -144,6 +151,39 @@ class PathItem extends fairygui.GComponent
                 if(files && files.length>0)self.path=files[0];
             });
         }
+    }
+
+    textFocus()
+    {
+        this.currPath=this.pathTxt.text;
+    }
+
+    focusOut()
+    {
+        if(this.currPath!=this.pathTxt.text)
+        {
+            this.event("pathChange");
+            this.checkSvn();
+        }
+    }
+
+    checkSvn()
+    {
+        let exec=require("child_process").exec;
+        var self=this;
+        exec("svn info",{"cwd":this.path},function(error,stdout,stderr)
+        {
+           if(error)
+           {
+                self.pathTxt.color="#000000";
+                self.isSvn=false;
+           }
+           else if(stdout)
+           {
+               self.pathTxt.color="#33ff33";
+               self.isSvn=true;
+           }
+        });
     }
 }
 

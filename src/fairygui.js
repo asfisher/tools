@@ -829,6 +829,10 @@
 			this._displayObject.off(type,thisObject,listener);
 		}
 
+        __proto.event=function(type,data){
+            this._displayObject.event(type,data);
+        }
+
 		__proto.startDrag=function(touchPointID){
 			(touchPointID===void 0)&& (touchPointID=-1);
 			if (this._displayObject.stage==null)

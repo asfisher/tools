@@ -14,7 +14,6 @@ class VersionFactory extends Laya.EventDispatcher
     startVer(pathVer,preVer,info)
     {
         fairygui.GRoot.inst.showModalWait("开始检查文件");
-        this.cache=null;
         this.pathVer=pathVer;
         this.preVer=preVer;
         this.verData=info;
@@ -23,12 +22,13 @@ class VersionFactory extends Laya.EventDispatcher
 
     loadPreVer()
     {
-        if(!fs.existsSync(this.verData.to+"\/ver"))
+        let logVerPath=this.verData.to+"\\client-log\\ver";
+        if(!fs.existsSync(logVerPath))
         {
-            fs.mkdirSync(this.verData.to+"\/ver");
+            fs.mkdirSync(logVerPath);
         }
         this.preVerObj=null;
-        let verPath=this.verData.to+"\/ver\/"+this.preVer+".ver";
+        let verPath=logVerPath+"\\"+this.preVer+".ver";
         if(fs.existsSync(verPath))
         {
             try
@@ -102,7 +102,13 @@ class VersionFactory extends Laya.EventDispatcher
         }
         let count=0
         this.md5Index=-2;
-        while(count<20)
+        if(this.md5List.length==0)
+        {
+            fairygui.GRoot.inst.closeModalWait();
+            alert("没有找到文件","系统提示");
+            return;
+        }
+        while(count<20 && count<this.md5List.length)
         {
             count++;
             this.md5Index+=2;
@@ -143,11 +149,12 @@ class VersionFactory extends Laya.EventDispatcher
     {
         let addList=[];
         let updateList=[];
-        let newVerObj=[];
+        let newVerObj={};
         let unChangeList=[];
         let timeVer=Date.now();
         for(let fileName in md5Hash)
         {
+            fileName=fileName.replace(/\\/g,"\/");
             let preInfo=this.preVerObj[fileName];
             if(preInfo)
             {
@@ -170,33 +177,151 @@ class VersionFactory extends Laya.EventDispatcher
                 newVerObj[fileName]={"md5":md5Hash[fileName],"ver":this.pathVer,"time":timeVer};
             }
         }
+        newVerObj.currVerTime=timeVer;
         console.log(newVerObj);
-        this.cache=[addList,updateList,unChangeList,newVerObj];
-        this.event(MyEvents.VER_BUILD_OVER,[addList,updateList,newVerObj]);
+        this.event(MyEvents.VER_BUILD_OVER,[addList,updateList,unChangeList,newVerObj]);
+
+
+        this.showLog(this.getVerLog(addList,updateList));
         trace("完成总时间---"+(Date.now()-this.startT));
         fairygui.GRoot.inst.closeModalWait();
     }
 
 
-    publishVer()
+    publishVer(addList,updateList,unChangeList,newVerObj,verData,ver,autoCommit=false)
     {
-        fairygui.GRoot.inst.showModalWait("复制文件中....");
-        fs.writeFileSync("./unCopy.txt",this.cache[2].join("\r\n"),"utf8");
-        var exec = require('child_process').exec;
-        exec("echo f| xcopy /S/E/Y "+this.verData.from+" /exclude:unCopy.txt "+this.verData.to+"\\"+this.pathVer+"\\",{"encoding":"usc2"},function(err,stdout,stderr)
+        if(addList.length==0 && updateList.length==0)
         {
-            var iconv = require('iconv-lite');
-
-            if(err)
+            alert("文件无变更","系统提示");
+            return;
+        }
+        var copyFiles=function()
+        {
+            fairygui.GRoot.inst.showModalWait("复制文件中....");
+            self.showLog("\n\r\n\r开始复制文件-------\n\r");
+            fs.writeFileSync("./unCopy.txt",unChangeList.join("\r\n").replace(/\//g,"\\"),"utf8");
+            exec("echo f| xcopy /S/E/Y "+verData.from+" /exclude:unCopy.txt "+verData.to+"\\client\\"+ver+"\\",{"encoding":"usc2","maxBuffer":5000*1024},function(err,stdout,stderr)
             {
+                var iconv = require('iconv-lite');
 
+                if(err)
+                {
+                    alert(err.message,"copy文件挂了");
+                }
+                else
+                {
+                    self.showLog(iconv.decode(stdout,"gbk"));
+                    buildVerFile();
+                }
+            });
+        }
+
+        var buildVerFile=function()
+        {
+            fairygui.GRoot.inst.showModalWait("开始生成版本文件....");
+            let timeVerInfo={};
+            let fileVerInfo={};
+            for(var fileName in newVerObj)
+            {
+                if(fileName=="currVerTime")continue;
+                timeVerInfo[fileName]=newVerObj[fileName].time;
+                fileVerInfo[fileName]=newVerObj[fileName].ver;
             }
-            else
+
+            var verJs="";
+            verJs+="var timeV="+JSON.stringify(timeVerInfo)+";\n\r";
+            verJs+="var ver="+JSON.stringify(fileVerInfo)+";\n\r";
+            myFs.saveFiles([[verJs,verData.to+"\\client\\ver\\Ver_"+ver+"."+timeVer+".js"],[JSON.stringify(newVerObj),verData.to+"\\client-log\\ver\\"+ver+".ver"]],function()
+            {
+                compressJs();
+            });
+        }
+
+        var compressJs=function()
+        {
+            var jsCompress=require("./utils.jsCompress.js");
+            for(var i=0;i<addList.length;i++)
+            {
+                if(addList[i].match(/\S+\.js$/g)) jsList.push(verData.to+"\\client\\"+ver+"\\"+addList[i]);
+                if(addList[i].match(/\S+\.png$/g)) pngList.push(verData.to+"\\client\\"+ver+"\\"+addList[i]);
+            }
+            for(i=0;i<updateList.length;i++)
+            {
+                if(updateList[i].match(/\S+\.js$/g)) jsList.push(verData.to+"\\client\\"+ver+"\\"+updateList[i]);
+                if(updateList[i].match(/\S+\.png$/g)) pngList.push(verData.to+"\\client\\"+ver+"\\"+updateList[i]);
+            }
+            jsCompress.compress(jsList,compressPng);
+        }
+
+        var compressPng=function()
+        {
+            var pngCompress=require("./utils.pngCompress.js");
+            pngCompress.compress(pngList,saveLogFile);
+        }
+
+        var saveLogFile=function()
+        {
+            fairygui.GRoot.inst.showModalWait("保存日志文件....");
+            let date=new Date(timeVer);
+            myFs.save(self.getVerLog(addList,updateList),verData.to+"\\client-log\\log\\"+date.getFullYear()+"-"+date.getMonth()+"-"+date.getDay()+"\\"+timeVer+".ver","utf-8",function()
+            {
+                fs.writeFileSync(verData.to+"\\client-log\\ver\\new.ver",ver);
+               commitToSvn();
+            });
+        }
+
+        var commitToSvn=function()
+        {
+            fairygui.GRoot.inst.showModalWait("提交svn....");
+            if(autoCommit)
+            {
+                var svn=require("./utils.svn");
+                svn.add([verData.to+"\\client",verData.to+"\\client-log"],function()
+                {
+                    svn.commit([verData.to+"\\client",verData.to+"\\client-log"],function()
+                    {
+                        self.event(MyEvents.VER_COMPLETE);
+                        fairygui.GRoot.inst.closeModalWait();
+                    },"发布版本"+ver+"."+timeVer,self.showLog.bind(self));
+                },self.showLog.bind(self));
+            }
+           else
             {
                 fairygui.GRoot.inst.closeModalWait();
+                alert("发布目录不是svn目录，请自行提交到发布svn目录","系统提示");
             }
-            // stderr &&(stderr=iconv.decode(stderr.message,"gbk"))&& (self.outTxt.text+=stderr);
-        });
+        }
+
+        var exec = require('child_process').exec;
+        var myFs=require("../utils/utils.fs");
+        var self=this;
+        var timeVer=newVerObj["currVerTime"];
+        var pngList=[];
+        var jsList=[];
+        copyFiles();
+    }
+
+
+
+    showLog(log)
+    {
+        this.event(MyEvents.VER_LOG,log);
+    }
+
+    getVerLog(addList,updateList)
+    {
+        var log="原版本:"+this.preVer+" 更新版本:"+this.pathVer+"\r\n";
+        log+="新增文件:"+addList.length+"个";
+        log+="更新文件:"+updateList.length+"个\r\n";
+        if(addList.length>0)
+        {
+            log+="新增"+addList.join("\r\n新增");
+        }
+        if(updateList.length>0)
+        {
+            log+="更新"+updateList.join("\r\n更新");
+        }
+        return log;
     }
 }
 

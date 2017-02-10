@@ -12,4 +12,10 @@ export:
         data: 'E:\document\hy\0data\gamedata'
         lang: 'E:\Test\data'
         export: 'E:\Test\ss'
-publish: {}
+publish:
+  CC:
+    from: 'E:\document\h5\client\h5'
+    to: 'E:\project_CCDR\Release'
+  GT:
+    from: ''
+    to: ''
