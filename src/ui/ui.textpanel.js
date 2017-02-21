@@ -26,19 +26,27 @@ class TestPanel extends fairygui.GComponent
         //     console.log("error:"+error);
         // })
 
-        var svn=require("../utils/utils.svn");
-        var Buffer=require("buffer").Buffer;
-;        var iconv=require("iconv-lite");
-        svn.execs(["ll","dir"],
-            function(stdout)
-            {
-                console.log(stdout);
-            },
-            function(stdout)
-            {
-                console.log(stdout);
-            });
+//         var svn=require("../utils/utils.svn");
+//         var Buffer=require("buffer").Buffer;
+// ;        var iconv=require("iconv-lite");
+//         svn.execs(["ll","dir"],
+//             function(stdout)
+//             {
+//                 console.log(stdout);
+//             },
+//             function(stdout)
+//             {
+//                 console.log(stdout);
+//             });
 
+        var str=this.inputTxt.text;
+        var rec=RegExp(/`(\w*)` ([\w()',]*) .*(?:COMMENT\s'(.*)')/g);
+        var result;
+        while((result=rec.exec(str))!=null)
+        {
+            console.log(result);
+        }
+        // console.log(str.match(/`(\w*)` .*COMMENT\s'(.*)'/g));
     }
 
     clickClear()

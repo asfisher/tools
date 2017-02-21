@@ -189,12 +189,12 @@ class ExportDataPanel extends fairygui.GComponent
         }
     }
 
-    doSqlBack(...rows)
+    doSqlBack(rows,tableInfo)
     {
         if(this.index>=0)
         {
             let item=this.sqlList.getChildAt(this.index);
-            sqlSave.saveFile(rows,item.sqlInfo,ConfigData.inst.exportCache.selectToInfo,this,this.doNextSql);
+            sqlSave.saveFile(rows,item.sqlInfo,ConfigData.inst.exportCache.selectToInfo,this,this.doNextSql,tableInfo);
         }
     }
 
@@ -527,12 +527,12 @@ class SqlSelectItem extends fairygui.GButton
     startSql(mysql)
     {
         let self=this;
-        mysql.doSql(this.sqlInfo.sql,Laya.Handler.create(this,this.sqlBack),this.sqlInfo.value);
+        mysql.doSql(this.sqlInfo.sql,Laya.Handler.create(this,this.sqlBack),this.sqlInfo.value,this.sqlInfo.outPackage);
     }
 
-    sqlBack(rows)
+    sqlBack(rows,tableInfo)
     {
-        this.displayObject.event("sql_back",rows);
+        this.displayObject.event("sql_back",[rows,tableInfo]);
     }
 
 

@@ -1,8 +1,8 @@
+const fs=require("fs");
 /**
  * Created by 75 on 2016/12/23.
  */
-const yaml=require("js-yaml");
-const fs=require("fs");
+var yaml=require("js-yaml");
 class ConfigData extends Laya.EventDispatcher
 {
     constructor()

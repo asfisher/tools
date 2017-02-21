@@ -1,9 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <packageDescription id="86yk9ird" jpegQuality="80" compressPNG="true">
   <resources>
-    <component id="iwc50" name="Menu" folder="" file="iwc50.xml"/>
     <component id="iwc51" name="MenuBtn" folder="" file="iwc51.xml"/>
     <component id="iwc52" name="MainPanel" folder="" file="iwc52.xml" exported="true"/>
+    <folder id="iwc53" name="images" folder=""/>
+    <image id="iwc54" name="叉叉关闭@3x" folder="iwc53" qualityOption="source" file="iwc54.png" size="110,110"/>
+    <image id="iwc55" name="叉叉关闭点击@3x" folder="iwc53" qualityOption="source" file="iwc55.png" size="110,110"/>
+    <component id="iwc56" name="CloseBtn" folder="" file="iwc56.xml"/>
+    <component id="iwc57" name="DragLine" folder="" file="iwc57.xml"/>
+    <folder id="iwc58" name="export" folder=""/>
+    <component id="iwc59" name="ExportPanel" folder="iwc58" file="iwc59.xml"/>
+    <component id="iwc5c" name="DeleteBtn" folder="iwc58" file="iwc5c.xml"/>
+    <component id="iwc5d" name="ExportTabBtn" folder="iwc58" file="iwc5d.xml"/>
+    <image id="iwc5e" name="增加按钮" folder="iwc53" qualityOption="source" file="iwc5e.png" size="22,21"/>
+    <component id="iwc5g" name="AddBtn" folder="iwc58" file="iwc5g.xml"/>
+    <image id="iwc5h" name="1_06" folder="iwc53" qualityOption="source" file="iwc5h.png" size="16,16"/>
+    <image id="iwc5i" name="1_03" folder="iwc53" qualityOption="source" file="iwc5i.png" size="16,16"/>
+    <image id="iwc5j" name="1_01" folder="iwc53" qualityOption="source" file="iwc5j.png" size="27,28"/>
+    <component id="iwc5k" name="SqlSelectBtn" folder="iwc58" file="iwc5k.xml"/>
+    <component id="jpoxl" name="NormalBtn" folder="iwc58" file="jpoxl.xml"/>
+    <component id="jpoxm" name="PathItem" folder="" file="jpoxm.xml"/>
+    <component id="jpoxn" name="SelectPathBtn" folder="iwc58" file="jpoxn.xml"/>
+    <component id="jpoxp" name="ExportFromSet" folder="iwc58" file="jpoxp.xml" exported="true"/>
+    <component id="j1vvq" name="FreeCon" folder="" file="j1vvq.xml"/>
+    <component id="j1vvs" name="Loading" folder="" file="j1vvs.xml" exported="true"/>
+    <image id="n2m9t" name="搜索_默认" folder="iwc53" qualityOption="source" file="n2m9t.png" size="15,16"/>
+    <image id="n2m9u" name="搜索_划过" folder="iwc53" qualityOption="source" file="n2m9u.png" size="15,16"/>
+    <component id="n2m9v" name="SearchBtn" folder="iwc58" file="n2m9v.xml"/>
+    <image id="n2m9w" name="删除1_默认" folder="iwc53" qualityOption="source" file="n2m9w.png" size="30,30"/>
+    <image id="n2m9x" name="删除1_划过" folder="iwc53" qualityOption="source" file="n2m9x.png" size="30,30"/>
+    <image id="n2m9y" name="按钮2_默认" folder="iwc53" qualityOption="source" file="n2m9y.png" size="50,30" scale="9grid" scale9grid="13,8,22,16"/>
+    <image id="n2m9z" name="按钮2_划过" folder="iwc53" qualityOption="source" file="n2m9z.png" size="50,30" scale="9grid" scale9grid="13,8,26,16"/>
+    <component id="n2m910" name="SimpleBtn" folder="" file="n2m910.xml"/>
+    <image id="n2m911" name="添加普通" folder="iwc53" qualityOption="source" file="n2m911.png" size="30,30"/>
+    <image id="n2m912" name="添加划过" folder="iwc53" qualityOption="source" file="n2m912.png" size="30,30"/>
+    <image id="n2m913" name="按钮1_默认" folder="iwc53" qualityOption="source" file="n2m913.png" size="100,42"/>
+    <image id="n2m914" name="按钮1_划过" folder="iwc53" qualityOption="source" file="n2m914.png" size="100,42"/>
+    <component id="n2m915" name="LinkSqlBtn" folder="iwc58" file="n2m915.xml"/>
+    <image id="n2m916" name="删除2_划过" folder="iwc53" qualityOption="source" file="n2m916.png" size="10,9"/>
+    <image id="n2m917" name="删除2_默认" folder="iwc53" qualityOption="source" file="n2m917.png" size="10,9"/>
+    <component id="n2m918" name="PopCloseBtn" folder="iwc58" file="n2m918.xml"/>
+    <component id="n2m919" name="TestPanel" folder="vhxw1c" file="n2m919.xml"/>
+    <component id="vhxw1a" name="OutputTxt" folder="vhxw1c" file="vhxw1a.xml"/>
+    <folder id="vhxw1c" name="test" folder=""/>
+    <folder id="vhxw1d" name="publish" folder=""/>
+    <component id="vhxw1e" name="PublishPanel" folder="vhxw1d" file="vhxw1e.xml"/>
+    <component id="vhxw1f" name="PublishTabBtn" folder="vhxw1d" file="vhxw1f.xml"/>
+    <component id="vhxw1g" name="PreVersion_item" folder="vhxw1d" file="vhxw1g.xml"/>
+    <component id="vhxw1h" name="PreVersion_popup" folder="vhxw1d" file="vhxw1h.xml"/>
+    <component id="vhxw1i" name="PreVersion" folder="vhxw1d" file="vhxw1i.xml"/>
+    <component id="vhxw1j" name="滚动文本" folder="iwc58" file="vhxw1j.xml"/>
   </resources>
   <publish name="base" zipExt="fui"/>
 </packageDescription>

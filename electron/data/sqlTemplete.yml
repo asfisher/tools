@@ -11,8 +11,9 @@ sqlList:
  - sql: SELECT ID, Class, Module, ModuleID, Prop, Cn,En, Vn,Font from sys_language where Class!='Error'
    name: language
    class: lang
- - sql: SELECT ItemID,Avatar,ClassModule,ClassParam,`Grade`,ClientView,Destory,DestoryMaterial,CommodityID,PackageType,UseLevel,AccessPath,EnchantingExp FROM `sys_item` where Enabled=1
+ - sql: SELECT ItemID,Avatar,ClassModule,`Grade`,ClientView,Destory,DestoryMaterial,CommodityID,PackageType,UseLevel,EnchantingExp FROM `sys_item` where Enabled=1
    name: item
    path: ($data)/item/item.txt
+   outPackage: core.data.item
    value:
     - name: AccessPath

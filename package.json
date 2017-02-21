@@ -8,12 +8,13 @@
   },
   "scripts": {
     "start": "electron .",
-    "packager": "electron-packager ./ tools --win --out tools --arch=x64 --version 1.4.12 --overwrite --ignore=node_modules --icon=./electron/ico/sb001.ico"
+    "packager": "electron-packager ./ tools --win --out tools --all --version 1.4.13 --overwrite --ignore=node_modules --icon=./electron/ico/sb002.ico"
   },
   "author": "fish",
   "license": "ISC",
   "devDependencies": {
     "electron-packager": "^8.4.0",
-    "gulp-jshint": "^2.0.4"
+    "gulp-jshint": "^2.0.4",
+    "js-yaml": "^3.8.1"
   }
 }

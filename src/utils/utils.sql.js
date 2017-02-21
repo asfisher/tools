@@ -6,7 +6,7 @@ class Mysql
         this.pool=this.mysql.createPool(config);
     }
 
-    doSql(sql,callBack,value)
+    doSql(sql,callBack,value,isGetTableInfo=false)
     {
         let self=this;
         this.pool.getConnection(function(err,conn)
@@ -21,17 +21,32 @@ class Mysql
                         self.checkValue(rows[i],value,sql);
                     }
                 }
-                callBack.runWith([rows]);
+                if(isGetTableInfo)
+                {
+                    let maxRec=new RegExp(/(from|FROM) +([\w`]*) +/g);
+                    var result=maxRec.exec(sql);
+                    conn.query("show create TABLE "+result[2],function(err,tableInfo)
+                    {
+                       callBack.runWith([rows,tableInfo]) ;
+                    });
+                }
+                else
+                {
+                    callBack.runWith([rows]);
+                }
             });
             conn.release();
         });
     }
+
+
 
     checkValue(info,value,sql)
     {
         for(let i=0;i<value.length;i++)
         {
             let valueItem=value[i];
+            if(!(valueItem.name in info))continue;
             if(valueItem.type=="array")
             {
                 try

@@ -1,6 +1,6 @@
 export:
   debug:
-    sql: 'E:\laya\tool\electron\data\sqlTemplete.yml'
+    sql: 'E:\laya\tools\electron\data\sqlTemplete.yml'
     host: 192.168.18.20
     user: readonly
     password: readonly
@@ -8,9 +8,9 @@ export:
     port: '3306'
     to:
       debug:
-        dataLib: 'E:\Test\src'
-        data: 'E:\document\hy\0data\gamedata'
-        lang: 'E:\Test\data'
+        dataLib: 'E:\Test'
+        data: 'E:\Test\data'
+        lang: 'E:\Test'
         export: 'E:\Test\ss'
 publish:
   CC:

@@ -471,7 +471,14 @@
 		Events.createEvent=function(type,target,source){
 			fairygui.Events.$event.setTo(type,target,source?source.target:target);
 			if(source)
-				fairygui.Events.$event.touchId=source.touchId;
+			{
+                fairygui.Events.$event.touchId=source.touchId;
+				fairygui.Events.$event.nativeEvent=source.nativeEvent;
+            }
+            else
+			{
+                fairygui.Events.$event.nativeEvent
+			}
 			fairygui.Events.$event._stoped=false;
 			return fairygui.Events.$event;
 		}
@@ -821,6 +828,10 @@
 		__proto.off=function(type,thisObject,listener){
 			this._displayObject.off(type,thisObject,listener);
 		}
+
+        __proto.event=function(type,data){
+            this._displayObject.event(type,data);
+        }
 
 		__proto.startDrag=function(touchPointID){
 			(touchPointID===void 0)&& (touchPointID=-1);

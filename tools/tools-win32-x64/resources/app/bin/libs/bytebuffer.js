@@ -15,10 +15,10 @@
  */
 
 /**
- * @license byte (c) 2015 Daniel Wirtz <dcode@dcode.io>
+ * @license bytebuffer.js (c) 2015 Daniel Wirtz <dcode@dcode.io>
  * Backing buffer: ArrayBuffer, Accessor: Uint8Array
  * Released under the Apache License, Version 2.0
- * see: https://github.com/dcodeIO/byte for details
+ * see: https://github.com/dcodeIO/bytebuffer.js for details
  */
 (function(global, factory) {
 

@@ -14711,6 +14711,7 @@ declare module laya.resource {
          * @param add 需要增加的内存大小。
          */
         addSize(add: number): void;
+        traceInfo():void;
     }
 }
 declare module laya.resource {
