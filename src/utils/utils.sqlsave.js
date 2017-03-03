@@ -88,7 +88,7 @@ function getDataClass(tableInfo,sqlInfo,package,rows)
         {
             file+="\t\t\/**"+result[3]+"*\/\n";
         }
-        file+="\t\tpublic function get "+varName+"():"+type+"{return this['_"+toLowHead(varName)+"'];}\n\n";
+        file+="\t\tpublic function get "+varName+"():"+type+"{return this['_"+varName+"'];}\n\n";
     }
 
     file+="\t}\n\n}";
